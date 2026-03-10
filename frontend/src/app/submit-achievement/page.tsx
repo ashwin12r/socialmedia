@@ -23,8 +23,11 @@ export default function SubmitAchievementPage() {
   const mutation = useMutation({
     mutationFn: () =>
       submitAchievement({
-        ...form,
-        club_id: form.club_id ? Number(form.club_id) : undefined,
+        name: form.student_name,
+        title: form.title,
+        description: form.description,
+        proof_url: form.proof_url,
+        club_id: form.club_id || undefined,
       }),
     onSuccess: () => {
       setSubmitted(true);

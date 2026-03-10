@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, Users, Code, Cpu, Shield, Brain, Palette, Share2 } from 'lucide-react';
 import clsx from 'clsx';
 
-const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+const iconMap: Record<string, any> = {
   Users, Code, Cpu, Shield, Brain, Palette, Share2,
 };
 
@@ -58,7 +58,7 @@ export default function ClubCard({ club, index = 0, compact = false }: ClubCardP
                 className="w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
                 style={{ backgroundColor: `${color}20` }}
               >
-                <Icon size={24} style={{ color }} />
+                <Icon size={24} color={color} />
               </div>
               <ArrowUpRight
                 size={20}
