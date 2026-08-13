@@ -8,6 +8,14 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Auto-seed the database on boot if it's empty (e.g. after a fresh/ephemeral disk)
+const db = require('./models/database');
+const clubCount = db.prepare('SELECT COUNT(*) as count FROM clubs').get().count;
+if (clubCount === 0) {
+  console.log('📦 Empty database detected — seeding initial data...');
+  require('./seeds/seed');
+}
+
 // Middleware
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
 app.use(cors({ origin: process.env.CORS_ORIGIN || 'http://localhost:3000', credentials: true }));

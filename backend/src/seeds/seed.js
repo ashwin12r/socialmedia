@@ -183,4 +183,6 @@ console.log(`   Activities: ${activities.length}`);
 console.log(`   Gallery Items: ${galleryItems.length}`);
 console.log(`   Social Posts: ${socialPosts.length}`);
 
-process.exit(0);
+if (require.main === module) {
+  process.exit(0);
+}
